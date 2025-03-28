@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme";
+import Navbar from "./components/MuiNavbar";
+import { Box, Stack } from "@mui/material";
+import MuiFeed from "./components/MuiFeed";
+import MuiRightBar from "./components/MuiRightBar";
+import MuiLeftBar from "./components/MuiLeftBar";
+import MuiNavbar from "./components/MuiNavbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box>
+       <MuiNavbar />
+        <Stack direction="row" spacing={2} justifyContent={"space-between"}>
+          <MuiLeftBar />
+          <MuiFeed />
+          <MuiRightBar />
+        </Stack>
+      </Box>
+    </ThemeProvider>
   );
 }
 
